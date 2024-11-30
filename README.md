@@ -2,4 +2,4 @@
 Java code samples
 
 ## Features
-### Switch expression (Java 17)
+### Switch expression (Java 14)
