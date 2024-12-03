@@ -21,7 +21,7 @@ public class BlockingQueueExample {
             System.out.println(blockingQueue.take());
             System.out.println(blockingQueue.take());
             System.out.println(blockingQueue.take());
-            blockingQueue.put("Static");
+            blockingQueue.put("#Static");
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
