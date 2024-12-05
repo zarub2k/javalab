@@ -11,7 +11,7 @@ public class CounterRunnable implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < size; i++) {
-            System.out.println(currentThread().getName() + ">>>" + title + i);
+            System.out.println(currentThread().getName() + ">>>" + title + " " + i);
         }
     }
 }
