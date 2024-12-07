@@ -17,6 +17,7 @@
   <modules>
     <module>mavenplugin</module>
     <module>patterns</module>
+    <module>docker</module>
   </modules>
   <!-- dependency management -->
   <dependencyManagement>
