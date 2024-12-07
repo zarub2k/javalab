@@ -6,7 +6,6 @@
   <packaging>pom</packaging>
   <name>javalab</name>
   <url>http://maven.apache.org</url>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>17</java.version>
@@ -14,6 +13,12 @@
     <!--    <maven.compiler.source>23</maven.compiler.source>-->
     <!--    <maven.compiler.target>23</maven.compiler.target>-->
   </properties>
+  <!-- modules -->
+  <modules>
+    <module>mavenplugin</module>
+    <module>patterns</module>
+  </modules>
+  <!-- dependency management -->
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -39,6 +44,7 @@
     <!--      <scope>test</scope>-->
     <!--    </dependency>-->
   </dependencies>
+  <!-- build flow -->
   <build>
     <plugins>
       <plugin>
@@ -52,7 +58,4 @@
       </plugin>
     </plugins>
   </build>
-  <modules>
-    <module>mavenplugin</module>
-  </modules>
 </project>
