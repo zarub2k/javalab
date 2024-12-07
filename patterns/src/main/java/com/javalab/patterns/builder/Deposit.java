@@ -13,6 +13,10 @@ public class Deposit {
         this.payee = builder.payee;
     }
 
+    public double getAmount() {
+        return amount;
+    }
+
     public static class DepositBuilder {
         private double amount;
         private LocalDate date;
