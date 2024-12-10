@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <name>javalab</name>
-  <dependencies>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+
   <groupId>com.javalab</groupId>
   <artifactId>javalab</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <properties>
+
+  <!--<properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>17</java.version>
+  </properties>-->
     <!--    <maven.compiler.release>21</maven.compiler.release>-->
     <!--    <maven.compiler.source>23</maven.compiler.source>-->
     <!--    <maven.compiler.target>23</maven.compiler.target>-->
-  </properties>
   <!-- modules -->
   <modules>
     <module>core</module>
@@ -29,7 +24,7 @@
     <module>functional</module>
   </modules>
   <!-- dependency management -->
-  <dependencyManagement>
+  <!--<dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.junit</groupId>
@@ -39,7 +34,7 @@
         <scope>import</scope>
       </dependency>
     </dependencies>
-  </dependencyManagement>
+  </dependencyManagement>-->
   <!--<dependencies>
       <dependency>
         <groupId>junit</groupId>
