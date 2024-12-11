@@ -1,4 +1,4 @@
-package com.javalab.immutability;
+package com.javalab.immutable;
 
 import java.util.ArrayList;
 import java.util.Collections;
