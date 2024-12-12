@@ -37,4 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-~$guide.docx
+~$va_guide.docx
+~$m_guide.docx
