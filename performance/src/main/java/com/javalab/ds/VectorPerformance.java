@@ -13,7 +13,7 @@ public class VectorPerformance {
 
         int count = 100000000;
         vectorPerformance.doSimpleVector(count);
-        vectorPerformance.doSimpleArray(count);
+//        vectorPerformance.doSimpleArray(count);
     }
 
     private void doSimpleArray(int size) {
