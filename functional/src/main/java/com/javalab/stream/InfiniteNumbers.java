@@ -3,19 +3,16 @@ package com.javalab.stream;
 import java.util.Random;
 import java.util.SplittableRandom;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.random.RandomGenerator;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * @author Tham
  */
-public class RandomNumbers {
+public class InfiniteNumbers {
     public static void main(String[] args) {
-        RandomNumbers randomNumbers = new RandomNumbers();
-        randomNumbers.doRandom(10);
-        randomNumbers.doThreadLocalRandom(10);
-        randomNumbers.doSplittableRandom(10);
+        InfiniteNumbers infiniteNumbers = new InfiniteNumbers();
+        infiniteNumbers.doRandom(10);
+        infiniteNumbers.doThreadLocalRandom(10);
+        infiniteNumbers.doSplittableRandom(10);
     }
 
     private void doRandom(int count) {
