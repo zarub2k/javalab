@@ -1,4 +1,4 @@
-package com.javalab.file;
+package com.javalab.stream;
 
 import java.io.File;
 import java.io.IOException;
