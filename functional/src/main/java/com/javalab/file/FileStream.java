@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 /**
@@ -14,7 +16,8 @@ public class FileStream {
     public static void main(String[] args) {
         FileStream fileStream = new FileStream();
 //        fileStream.doFileStream();
-        fileStream.doDirDepthWithWalk();
+//        fileStream.doDirDepthWithWalk();
+        fileStream.doDirWithFind();
     }
 
     private void doFileStream() {
@@ -36,6 +39,17 @@ public class FileStream {
             stream.map(Path::toFile)
                     .filter(Predicate.not(File::isFile))
                     .sorted()
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void doDirWithFind() {
+        var start = Paths.get("./functional");
+        BiPredicate<Path, BasicFileAttributes> matcher = (path, attr) -> attr.isDirectory();
+        try (var stream = Files.find(start, Integer.MAX_VALUE, matcher)) {
+            stream.sorted()
                     .forEach(System.out::println);
         } catch (IOException e) {
             throw new RuntimeException(e);
