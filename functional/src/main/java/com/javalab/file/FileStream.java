@@ -28,8 +28,7 @@ public class FileStream {
                     .map(File::getName)
                     .forEach(System.out::println);
         } catch (IOException e) {
-            System.out.println("Error happened");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
