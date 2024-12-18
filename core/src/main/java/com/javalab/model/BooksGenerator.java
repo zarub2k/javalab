@@ -13,7 +13,7 @@ public class BooksGenerator {
                 new Book("AAA", 1989, Genre.FICTION),
                 new Book("Two", 1700, Genre.FICTION),
                 new Book("Three", 2005, Genre.MYSTRY),
-                new Book("Four", 2002, Genre.FICTION),
+                new Book("Four", 2000, Genre.FICTION),
                 new Book("Five", 1999, Genre.SCIENCE_FICTION),
                 new Book("Six", 1989, Genre.FICTION),
                 new Book("Seven", 2006, Genre.THRILLER)
