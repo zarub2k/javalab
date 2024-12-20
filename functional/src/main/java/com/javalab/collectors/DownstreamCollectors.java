@@ -1,8 +1,6 @@
 package com.javalab.collectors;
 
-import com.javalab.model.Book;
-import com.javalab.model.DataGenerator;
-import com.javalab.model.Genre;
+import com.javalab.model.*;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +14,8 @@ public class DownstreamCollectors {
         DownstreamCollectors downstreamCollectors = new DownstreamCollectors();
 //        downstreamCollectors.doTransforming();
 //        downstreamCollectors.doMultiple();
-        downstreamCollectors.doReducing();
+//        downstreamCollectors.doReducing();
+        downstreamCollectors.doFlattening();
     }
 
     //Grouping elements into a simple key-value pair map
@@ -51,6 +50,15 @@ public class DownstreamCollectors {
                 .stream()
                 .collect(Collectors.groupingBy(Book::year, downStream2));
         System.out.println(reduceResult1);
+    }
+
+    private void doFlattening() {
+        var downstream = Collectors.flatMapping((Organization org) -> org.users().stream(), Collectors.toList());
+
+        Map<String, List<User>> result = DataGenerator.orgs("ORG", 3)
+                .stream()
+                .collect(Collectors.groupingBy(Organization::city, downstream));
+        System.out.println(result);
     }
 
     /*private void doMultiple() {

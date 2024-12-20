@@ -31,16 +31,24 @@ public class DataGenerator {
         List<User> users = new ArrayList<>(count);
         Random random = new Random();
         for (int i = 0; i < count; i++) {
-            users.add(new User(prefix + i, random.nextInt()));
+            users.add(new User(prefix + i, random.nextInt(58)));
         }
 
         return users;
     }
 
     public static List<Organization> orgs(String prefix, int count) {
+        String[] cities = new String[] {"Chennai", "Bangalore", "Delhi"};
+        Random random = new Random();
+
+        StringBuilder builder = new StringBuilder();
         List<Organization> orgs = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
-            orgs.add(new Organization(prefix + i, users(prefix + "USR", count)));
+            builder.delete(0, builder.toString().length());
+            builder.append(prefix);
+            builder.append(i);
+            orgs.add(new Organization(builder.toString(), cities[random.nextInt(3)],
+                    users(builder.toString() + "-USR", count)));
         }
 
         return orgs;
