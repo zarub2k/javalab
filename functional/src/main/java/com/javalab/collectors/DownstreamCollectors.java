@@ -4,6 +4,8 @@ import com.javalab.model.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -15,7 +17,8 @@ public class DownstreamCollectors {
 //        downstreamCollectors.doTransforming();
 //        downstreamCollectors.doMultiple();
 //        downstreamCollectors.doReducing();
-        downstreamCollectors.doFlattening();
+//        downstreamCollectors.doFlattening();
+        downstreamCollectors.doFiltering();
     }
 
     //Grouping elements into a simple key-value pair map
@@ -59,6 +62,27 @@ public class DownstreamCollectors {
                 .stream()
                 .collect(Collectors.groupingBy(Organization::city, downstream));
         System.out.println(result);
+    }
+
+    private void doFiltering() {
+        //Filter and then group TYPE - 1
+        Predicate<User> ageBelow50 = Predicate.not(user -> user.age() > 25);
+
+        //>>> with intermediate filter
+        List<User> users = DataGenerator.users("USR", 10);
+        System.out.println(users);
+        Map<Integer, Set<String>> resultFilterThenGroup = users
+                .stream()
+                .filter(ageBelow50)
+                .collect(Collectors.groupingBy(User::age,
+                        Collectors.mapping(User::name, Collectors.toSet())));
+        System.out.println(resultFilterThenGroup);
+
+        //Group and then filter TYPE - 2
+        Map<Integer, Set<String>> resultGroupThenFilter = users.stream()
+                .collect(Collectors.groupingBy(User::age,
+                        Collectors.filtering(ageBelow50, Collectors.mapping(User::name, Collectors.toSet()))));
+        System.out.println(resultGroupThenFilter);
     }
 
     /*private void doMultiple() {
