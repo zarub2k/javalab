@@ -18,7 +18,8 @@ public class DownstreamCollectors {
 //        downstreamCollectors.doMultiple();
 //        downstreamCollectors.doReducing();
 //        downstreamCollectors.doFlattening();
-        downstreamCollectors.doFiltering();
+//        downstreamCollectors.doFiltering();
+        downstreamCollectors.doTeeing();
     }
 
     //Grouping elements into a simple key-value pair map
@@ -83,6 +84,20 @@ public class DownstreamCollectors {
                 .collect(Collectors.groupingBy(User::age,
                         Collectors.filtering(ageBelow50, Collectors.mapping(User::name, Collectors.toSet()))));
         System.out.println(resultGroupThenFilter);
+    }
+
+    private void doTeeing() {
+        Predicate<User> hasLoggedPredicate = Predicate.not(User::hasLogged);
+        UserStats userStats = DataGenerator.users("USR", 10)
+                .stream()
+                .collect(
+                        Collectors.teeing(
+                                Collectors.counting(),
+                                Collectors.filtering(hasLoggedPredicate, Collectors.counting()),
+                                UserStats::new
+                        )
+                );
+        System.out.println(userStats);
     }
 
     /*private void doMultiple() {

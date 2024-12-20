@@ -21,6 +21,7 @@
     <module>docker</module>
     <module>functional</module>
     <module>performance</module>
+    <module>ocp-java21</module>
   </modules>
   <!-- dependency management -->
   <!--<dependencyManagement>

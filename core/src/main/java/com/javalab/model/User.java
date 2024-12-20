@@ -1,4 +1,4 @@
 package com.javalab.model;
 
-public record User(String name, int age) {
+public record User(String name, int age, boolean hasLogged) {
 }

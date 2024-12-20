@@ -31,7 +31,7 @@ public class DataGenerator {
         List<User> users = new ArrayList<>(count);
         Random random = new Random();
         for (int i = 0; i < count; i++) {
-            users.add(new User(prefix + i, random.nextInt(58)));
+            users.add(new User(prefix + i, random.nextInt(58), random.nextBoolean()));
         }
 
         return users;
