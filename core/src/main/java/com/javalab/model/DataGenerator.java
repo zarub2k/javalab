@@ -2,11 +2,13 @@ package com.javalab.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Tham
  */
-public class BooksGenerator {
+public class DataGenerator {
     public static List<Book> books() {
         List<Book> temp = List.of(
                 new Book("One", 2000, Genre.NOVEL),
@@ -23,5 +25,24 @@ public class BooksGenerator {
         books.addAll(temp);
 
         return books;
+    }
+
+    public static List<User> users(String prefix, int count) {
+        List<User> users = new ArrayList<>(count);
+        Random random = new Random();
+        for (int i = 0; i < count; i++) {
+            users.add(new User(prefix + i, random.nextInt()));
+        }
+
+        return users;
+    }
+
+    public static List<Organization> orgs(String prefix, int count) {
+        List<Organization> orgs = new ArrayList<>(count);
+        for (int i = 0; i < count; i++) {
+            orgs.add(new Organization(prefix + i, users(prefix + "USR", count)));
+        }
+
+        return orgs;
     }
 }

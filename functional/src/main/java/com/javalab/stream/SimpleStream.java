@@ -1,7 +1,7 @@
 package com.javalab.stream;
 
 import com.javalab.model.Book;
-import com.javalab.model.BooksGenerator;
+import com.javalab.model.DataGenerator;
 import com.javalab.model.Genre;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class SimpleStream {
     }
 
     private void doStream() {
-        List<Book> filteredBooks = BooksGenerator
+        List<Book> filteredBooks = DataGenerator
                 .books()
                 .stream()
                 .filter(book -> book.year() < 2002)
@@ -36,7 +36,7 @@ public class SimpleStream {
 
     //Filter books published before 2005 + Sort by title
     private void doRegularList() {
-        List<Book> books = BooksGenerator.books();
+        List<Book> books = DataGenerator.books();
         books.sort(Comparator.comparing(Book::title));
 
         List<Book> filteredList = new ArrayList<>(4);

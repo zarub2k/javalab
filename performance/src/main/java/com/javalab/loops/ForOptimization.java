@@ -1,7 +1,7 @@
 package com.javalab.loops;
 
 import com.javalab.model.Book;
-import com.javalab.model.BooksGenerator;
+import com.javalab.model.DataGenerator;
 import com.javalab.util.StopWatch;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class ForOptimization {
     }
 
     private void doNormal() {
-        List<Book> books = BooksGenerator.books();
+        List<Book> books = DataGenerator.books();
         int count = 0;
 
         StopWatch stopWatch = StopWatch.start();
@@ -32,7 +32,7 @@ public class ForOptimization {
     }
 
     private void doOptimize() {
-        List<Book> books = BooksGenerator.books();
+        List<Book> books = DataGenerator.books();
         int count = 0;
 
         int size = books.size();

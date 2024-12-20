@@ -1,7 +1,7 @@
 package com.javalab.collectors;
 
 import com.javalab.model.Book;
-import com.javalab.model.BooksGenerator;
+import com.javalab.model.DataGenerator;
 import com.javalab.model.Genre;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class DownstreamCollectors {
 
     //Grouping elements into a simple key-value pair map
     private void doTransforming() {
-        List<Book> books = BooksGenerator.books();
+        List<Book> books = DataGenerator.books();
         Map<Genre, List<Book>> booksByGenre = books.stream()
                 .collect(Collectors.groupingBy(Book::genre));
         System.out.println(booksByGenre);
@@ -31,7 +31,7 @@ public class DownstreamCollectors {
         var summingUp = Collectors.reducing(0, Integer::sum);
         var downStream = Collectors.mapping((Book book) -> book.year(), summingUp);
 
-        Map<Integer, Integer> collect = BooksGenerator.books()
+        Map<Integer, Integer> collect = DataGenerator.books()
                 .stream()
                 .collect(Collectors.groupingBy(Book::year, downStream));
         System.out.println(collect);
@@ -40,14 +40,14 @@ public class DownstreamCollectors {
         var downStream1 = Collectors.reducing(0,
                 (Book book) -> book.year(),
                 Integer::sum);
-        Map<Integer, Integer> reduceResult = BooksGenerator.books()
+        Map<Integer, Integer> reduceResult = DataGenerator.books()
                 .stream()
                 .collect(Collectors.groupingBy(Book::year, downStream1));
         System.out.println(reduceResult);
 
         //3rd way
         var downStream2 = Collectors.summingInt((Book book) -> book.year());
-        Map<Integer, Integer> reduceResult1 = BooksGenerator.books()
+        Map<Integer, Integer> reduceResult1 = DataGenerator.books()
                 .stream()
                 .collect(Collectors.groupingBy(Book::year, downStream2));
         System.out.println(reduceResult1);
