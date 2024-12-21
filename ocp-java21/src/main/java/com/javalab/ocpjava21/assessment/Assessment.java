@@ -1,5 +1,7 @@
 package com.javalab.ocpjava21.assessment;
 
+import java.sql.Array;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -12,6 +14,16 @@ import java.util.stream.Stream;
  * Refer: <a href="https://learning.oreilly.com/library/view/ocp-oracle-certified/9781394286614/f08.xhtml#fintro-sec-0552">...</a>
  */
 public class Assessment {
+
+    /**
+     *
+     */
+    public void do07() {
+        int[] array = {6, 9, 8};
+        System.out.println("Binary search: " + Arrays.binarySearch(array, 9));
+        System.out.println("Array compare: " + Arrays.compare(array, new int[] {6, 9, 8}));
+        System.out.println("Array mismatch: " + Arrays.mismatch(array, new int[] {6, 9, 8}));
+    }
 
 
     /**

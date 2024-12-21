@@ -9,6 +9,11 @@ public class AssessmentTest {
     Assessment assessment = new Assessment();
 
     @Test
+    public void testDo07() {
+        assessment.do07();
+    }
+
+    @Test
     public void testDo05() {
         assessment.do05();
     }
