@@ -15,10 +15,12 @@ public class StopWatch {
     }
 
     public long time() {
-        return System.currentTimeMillis() - start;
+//        return System.currentTimeMillis() - start;
+        return (System.nanoTime() - start) / 1_000_000;
     }
 
     private void reset() {
-        start = System.currentTimeMillis();
+//        start = System.currentTimeMillis();
+        start = System.nanoTime();
     }
 }
