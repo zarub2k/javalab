@@ -3,6 +3,8 @@ package com.javalab.concurrency.thread;
 import com.javalab.util.StopWatch;
 
 import java.math.BigInteger;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
 
 /**
@@ -12,7 +14,28 @@ public class ParallelExecutionStrategy {
     public static void main(String[] args) {
         ParallelExecutionStrategy parallelExecutionStrategy = new ParallelExecutionStrategy();
 //        parallelExecutionStrategy.doRegular();
-        parallelExecutionStrategy.doThread();
+//        parallelExecutionStrategy.doThread();
+        parallelExecutionStrategy.doExecutorService();
+    }
+
+    private void doExecutorService() {
+        StopWatch stopWatch = StopWatch.start();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        executorService.submit(() -> {
+            doStuff(1000);
+        });
+
+        executorService.submit(() -> {
+            doStuff(10000);
+        });
+
+        executorService.submit(() -> {
+            doStuff(100000);
+        });
+
+        System.out.println("Overall time taken: " + stopWatch.time() + "ms");
+        executorService.shutdown();
     }
 
     private void doThread() {
