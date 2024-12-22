@@ -2,7 +2,6 @@ package com.javalab.concurrency.thread;
 
 import com.javalab.util.StopWatch;
 
-import java.math.BigInteger;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
@@ -15,12 +14,26 @@ public class ParallelExecutionStrategy {
         ParallelExecutionStrategy parallelExecutionStrategy = new ParallelExecutionStrategy();
 //        parallelExecutionStrategy.doRegular();
 //        parallelExecutionStrategy.doThread();
-        parallelExecutionStrategy.doExecutorService();
+//        parallelExecutionStrategy.doExecutorService();
+//        parallelExecutionStrategy.doVirtualThread();
     }
 
-    private void doVirtualThread() {
-//        Executors.newVirtualThreadPerTaskExecutor();
-    }
+    /*private void doVirtualThread() {
+        StopWatch stopWatch = StopWatch.start();
+        Thread.startVirtualThread(() -> {
+            doStuff(1000);
+        });
+
+        Thread.startVirtualThread(() -> {
+            doStuff(10000);
+        });
+
+        Thread.startVirtualThread(() -> {
+            doStuff(100000);
+        });
+
+        System.out.println("Overall time taken: " + stopWatch.time() + "ms");
+    }*/
 
     private void doExecutorService() {
         StopWatch stopWatch = StopWatch.start();
