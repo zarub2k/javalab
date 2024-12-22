@@ -20,7 +20,7 @@
 <!--    <maven.compiler.release>17</maven.compiler.release>-->
   </properties>
 
-  <dependencyManagement>
+  <!--<dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.junit</groupId>
@@ -30,7 +30,7 @@
         <scope>import</scope>
       </dependency>
     </dependencies>
-  </dependencyManagement>
+  </dependencyManagement>-->
 
   <dependencies>
     <!-- Custom maven plugin -->
@@ -44,18 +44,6 @@
       <artifactId>maven-plugin-annotations</artifactId>
       <version>3.13.1</version>
       <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <!-- Optionally: parameterized tests support -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 
