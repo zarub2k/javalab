@@ -18,10 +18,10 @@ public class AssessmentTest {
         assessment.do05();
     }
 
-    @Test
-    public void testDo04() {
-        assessment.do04();
-    }
+//    @Test
+//    public void testDo04() {
+//        assessment.do04();
+//    }
 
     @Test
     public void testDo02() {

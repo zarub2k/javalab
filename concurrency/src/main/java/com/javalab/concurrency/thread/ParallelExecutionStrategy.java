@@ -18,6 +18,10 @@ public class ParallelExecutionStrategy {
         parallelExecutionStrategy.doExecutorService();
     }
 
+    private void doVirtualThread() {
+//        Executors.newVirtualThreadPerTaskExecutor();
+    }
+
     private void doExecutorService() {
         StopWatch stopWatch = StopWatch.start();
 
