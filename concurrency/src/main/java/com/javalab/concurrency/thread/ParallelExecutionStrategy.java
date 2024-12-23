@@ -18,7 +18,7 @@ public class ParallelExecutionStrategy {
 //        parallelExecutionStrategy.doVirtualThread();
     }
 
-    /*private void doVirtualThread() {
+    private void doVirtualThread() {
         StopWatch stopWatch = StopWatch.start();
         Thread.startVirtualThread(() -> {
             doStuff(1000);
@@ -33,7 +33,7 @@ public class ParallelExecutionStrategy {
         });
 
         System.out.println("Overall time taken: " + stopWatch.time() + "ms");
-    }*/
+    }
 
     private void doExecutorService() {
         StopWatch stopWatch = StopWatch.start();

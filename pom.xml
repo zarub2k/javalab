@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
+<!--    <maven.compiler.release>17</maven.compiler.release>-->
     <java.source.version>21</java.source.version>
     <java.target.version>21</java.target.version>
 
@@ -81,10 +81,12 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven.compiler.plugin.version}</version>
           <configuration>
+            <release>23</release>
             <source>${java.source.version}</source>
             <target>${java.target.version}</target>
             <compilerArgs>
               <arg>-Xlint:deprecation</arg>
+              <arg>--enable-preview</arg>
             </compilerArgs>
           </configuration>
         </plugin>
