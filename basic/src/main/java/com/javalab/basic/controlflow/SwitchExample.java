@@ -6,6 +6,11 @@ package com.javalab.basic.controlflow;
 public class SwitchExample {
     enum Shape {Circle, Square, Triangle}
 
+    /*
+        -> switch expression should produce a result. You can't jump out
+        -> case Sqaure -> { return "This is a square" } is not allowed (return)
+        -> return, continue, break is not allowed in switch expression
+     */
     public void switchExpression(Shape shape) {
         String shapeName = switch (shape) {
             case Square -> {
