@@ -19,6 +19,8 @@ public class InheritanceExample {
             System.out.println(employee.getName() + " > " + employee.getSalary());
         }
 
+//        Manager newJoinee = (Manager) new Employee("", 0.0); //ERROR
+
         //manager.getSalary will always return the manager salary
         //declared type -> Employee / Actual type -> Manager
         //JVM calls the right method during the runtime
