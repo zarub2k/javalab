@@ -11,12 +11,12 @@ public class SwitchExampleTest {
     @Test
     public void testSwitchExpression() {
         instance.switchExpression(SwitchExample.Shape.Square);
-        instance.switchExpression(null);
+        instance.switchExpression(SwitchExample.Shape.Circle);
     }
 
     @Test
     public void testNormalSwtich() {
         instance.normalSwitch(SwitchExample.Shape.Square);
-        instance.normalSwitch(null);
+        instance.normalSwitch(SwitchExample.Shape.Circle);
     }
 }
