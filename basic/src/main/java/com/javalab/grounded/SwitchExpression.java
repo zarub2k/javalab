@@ -7,76 +7,23 @@ package com.javalab.grounded;
 public class SwitchExpression {
     public static void main(String[] args) {
         SwitchExpression instance = new SwitchExpression();
-        instance.switchOld("Feb");
-        
-        String swithWithReturn = instance.swithWithReturn("Feb");
-        System.out.println(swithWithReturn);
+        String season = instance.switchExprWithArrowValue("Anything");
+        System.out.println("Season: " + season);
     }
     
-//    private static final List<String> months = List.of(
-//        "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-//        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-//    );
-    
-    private void switchOld(String month) {
-        switch (month) {
-            case "Dec":
-            case "Jan":
-            case "Feb":
-                System.out.println("Winter season");
-                break;
-            case "Mar":
-            case "Apr":
-            case "May":
-                System.out.println("Summer season");
-                break;
-            case "Jun":
-            case "Jul":
-            case "Aug":
-            case "Sep":
-                System.out.println("Monsoon season");
-                break;
-            case "Oct":
-            case "Nov":
-                System.out.println("Autumn (Post-Monsoon) season");
-                break;
-        }
-    }
-    
-    private String swithWithReturn(String month) {
-        String season = null;
-        
-        switch (month) {
-            case "Dec":
-            case "Jan":
-            case "Feb":
-                System.out.println("Winter season");
-                season = "Winter";
-                break;
-            case "Mar":
-            case "Apr":
-            case "May":
-                System.out.println("Summer season");
-                season = "Summer";
-                break;
-            case "Jun":
-            case "Jul":
-            case "Aug":
-            case "Sep":
-                System.out.println("Monsoon season");
-                season = "Monsoon";
-                break;
-            case "Oct":
-            case "Nov":
-                System.out.println("Autumn (Post-Monsoon) season");
-                season = "Autumn";
-                break;
-        }
-        
+    private String switchExprWithArrowValue(String month) {
+        String season = switch (month) {
+            case "Dec", "Jan", "Feb" -> "Winter";
+            case "Mar", "Apr", "May" -> "Summer";
+            case "Jun", "Jul", "Aug", "Sep" -> "Monsoon";
+            case "Oct", "Nov" -> "Autumn";
+            default -> "No season";
+        };
+
         return season;
     }
     
-    private void switchWithArrow(String month) {
+    private void switchExprWithArrow(String month) {
         switch(month) {
             case "Dec", "Jan", "Feb" ->
                 System.out.println("Winter");
@@ -89,15 +36,57 @@ public class SwitchExpression {
         };
     }
     
-    private String switchExprWithArrow(String month) {
-        String season = switch (month) {
-            case "Dec", "Jan", "Feb" -> "Winter";
-            case "Mar", "Apr", "May" -> "Summer";
-            case "Jun", "Jul", "Aug", "Sep" -> "Monsoon";
-            case "Oct", "Nov" -> "Autumn";
-            default -> "No season";
-        };
-        
+    private void simpleSwitch(String month) {
+        switch (month) {
+            case "Dec":
+            case "Jan":
+            case "Feb":
+                System.out.println("Winter season");
+                break;
+            case "Mar":
+            case "Apr":
+            case "May":
+                System.out.println("Summer season");
+                break;
+            case "Jun":
+            case "Jul":
+            case "Aug":
+            case "Sep":
+                System.out.println("Monsoon season");
+                break;
+            case "Oct":
+            case "Nov":
+                System.out.println("Autumn (Post-Monsoon) season");
+                break;
+        }
+    }
+
+    private String switchWithValue(String month) {
+        String season = null;
+
+        switch (month) {
+            case "Dec":
+            case "Jan":
+            case "Feb":
+                season = "Winter";
+                break;
+            case "Mar":
+            case "Apr":
+            case "May":
+                season = "Summer";
+            case "Jun":
+            case "Jul":
+            case "Aug":
+            case "Sep":
+                season = "Monsoon";
+                break;
+            case "Oct":
+            case "Nov":
+                season = "Autumn";
+                break;
+        }
+
+        System.out.println("Season: " + season);
         return season;
     }
     
@@ -114,5 +103,26 @@ public class SwitchExpression {
             default:
                 yield "Not a season";
         };
+    }
+    
+    private enum Shape {
+        CIRCLE, SQUARE, RECTANGLE, TRIANGLE
+    }
+    
+    private void findShape(Shape shape) {
+        switch (shape) {
+            case CIRCLE:
+                System.out.println("This is a circle");
+                break;
+            case SQUARE:
+                System.out.println("This is a square");
+                break;
+            case RECTANGLE:
+                System.out.println("This is a rectangle");
+                break;
+            case TRIANGLE:
+                System.out.println("This is a triangle");
+                break;
+        }
     }
 }
