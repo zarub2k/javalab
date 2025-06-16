@@ -11,8 +11,6 @@ package com.javalab.grounded;
  */
 public class PatternMatchingExample {
     
-    
-    
     public static void main(String[] args) {
         PatternMatchingExample.patternMatchWithRecord(new Point(4, 6));
     }

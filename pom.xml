@@ -8,12 +8,11 @@
   <packaging>pom</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!--    <maven.compiler.release>17</maven.compiler.release>-->
     <java.source.version>23</java.source.version>
     <java.target.version>23</java.target.version>
     <maven.clean.plugin.version>3.4.0</maven.clean.plugin.version>
     <maven.resources.plugin.version>3.3.1</maven.resources.plugin.version>
-    <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+    <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
     <maven.surefire.plugin.version>3.3.0</maven.surefire.plugin.version>
     <maven.jar.plugin.version>3.4.2</maven.jar.plugin.version>
     <maven.install.plugin.version>3.1.2</maven.install.plugin.version>
@@ -21,8 +20,10 @@
     <maven.site.plugin.version>3.12.1</maven.site.plugin.version>
     <maven.project.info.reports.plugin.version>3.6.1</maven.project.info.reports.plugin.version>
     <org.junit.version>5.11.0</org.junit.version>
+    <!--<maven.compiler.release>25</maven.compiler.release>-->
   </properties>
   <modules>
+    <module>basic</module>  
     <module>common</module>
     <module>concurrency</module>
     <module>mavenplugin</module>
