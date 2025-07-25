@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Tham
  */
 public class ThreadSafeMapExample {
-    int SIZE = 1000;
+    int SIZE = 100;
     int THREAD_COUNT = 2;
     
     public static void main(String[] args) {
