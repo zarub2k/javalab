@@ -10,7 +10,33 @@ import java.util.List;
  */
 public class MathChallenge {
     public static void main(String[] args) {
-        MathChallenge.findDivisors(275);
+        MathChallenge.findAllPrimes(40);
+    }
+    
+    /**
+     * 
+     * @param value 
+     */
+    public static void findAllPrimes(int value) {
+        List primeNumebers = new ArrayList();
+        
+        for (int i = 2; i < value; i++) {
+            if (isPrime(i)) {
+                primeNumebers.add(i);
+            }
+        }
+        
+        System.out.println("Prime numbers: \n" + primeNumebers);
+    }
+    
+    private static boolean isPrime(int index) {
+        for (int i = 2; i <= index / 2; i++) {
+            if (index % i == 0) {
+                return false;
+            }
+        }
+        
+        return true;
     }
     
     /**
