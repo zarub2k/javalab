@@ -10,10 +10,47 @@ import java.util.List;
  */
 public class MathChallenge {
     public static void main(String[] args) {
-        MathChallenge.findAllPrimes(40);
+        MathChallenge.findPerfectNumbers(10000);
     }
     
     /**
+     * Perfect numbers: 
+     *   1. Find all the divisors of the given number
+     *   2. Sum of all the divisors is equals to the original number
+     * @param range 
+     */
+    public static void findPerfectNumbers(int range) {
+        List perfectNumbers = new ArrayList();
+        
+        for (int i = 1; i <= range; i++) {
+            if (isPerfect(i, getDivisors(i))) {
+                perfectNumbers.add(i);
+            }
+        }
+        
+        System.out.println("Perfect numbers are: \n" + perfectNumbers);
+    }
+    
+    private static boolean isPerfect(int value, List<Integer> divisors) {
+        int sum = divisors.stream().mapToInt(Integer::intValue).sum();
+        return (sum == value);
+    }
+    
+    private static List getDivisors(int value) {
+        final List<Integer> divisors = new ArrayList();
+        for (int i = 1; i <= value / 2; i++) {
+            if (value % i == 0) {
+                divisors.add(i);
+            }
+        }
+
+        return divisors;
+    }
+    
+    /**
+     * Find all the prime numbers for the given range value
+     * Prime -> The number is divisible by 1 and the number itself
+     * 1 is NOT a prime number
      * 
      * @param value 
      */
@@ -59,7 +96,7 @@ public class MathChallenge {
         }
         
         //If needed add the same number itself
-        divisors.add(value);
+//        divisors.add(value);
         
         System.out.println("Divisors are: \n" + divisors);
     }
