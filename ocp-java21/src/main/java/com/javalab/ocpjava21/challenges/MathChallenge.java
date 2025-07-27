@@ -31,9 +31,9 @@ public class MathChallenge {
         System.out.println("Perfect numbers are: \n" + perfectNumbers);
     }
     
-    private static boolean isPerfect(int value, List<Integer> divisors) {
+    private static boolean isPerfect(int original, List<Integer> divisors) {
         int sum = divisors.stream().mapToInt(Integer::intValue).sum();
-        return (sum == value);
+        return (sum == original);
     }
     
     private static List getDivisors(int value) {
