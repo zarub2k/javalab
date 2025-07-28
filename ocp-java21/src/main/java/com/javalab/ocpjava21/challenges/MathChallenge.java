@@ -2,7 +2,11 @@ package com.javalab.ocpjava21.challenges;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
 
 /**
  *
@@ -10,7 +14,29 @@ import java.util.List;
  */
 public class MathChallenge {
     public static void main(String[] args) {
-        MathChallenge.findPerfectNumbers(10000);
+        MathChallenge.findAllConnectedPrimes(50, 2);
+        MathChallenge.findAllConnectedPrimes(50, 4);
+        MathChallenge.findAllConnectedPrimes(50, 6);
+    }
+    
+    
+    
+    public static void findAllConnectedPrimes(int boudary, int distance) {
+        Map<Integer, Integer> connectedPrimes = new LinkedHashMap<Integer, Integer>();
+        for (int i = 2; i <= boudary; i++) {
+            if (isPrime(i) && isPrime(i + distance)) {
+                connectedPrimes.put(i, i + distance);
+            }
+        }
+        
+        String message = switch (distance) {
+            case 2 -> "Prime twins are: \n" + connectedPrimes;
+            case 4 -> "Prime cousins are: \n" + connectedPrimes;
+            case 6 -> "Sexy primes are: \n" + connectedPrimes;
+            default -> "No valid message";
+        };
+        
+        System.out.println(message);
     }
     
     /**
