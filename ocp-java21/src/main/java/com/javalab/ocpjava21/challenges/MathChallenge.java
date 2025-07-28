@@ -2,11 +2,9 @@ package com.javalab.ocpjava21.challenges;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedMap;
 
 /**
  *
@@ -20,7 +18,14 @@ public class MathChallenge {
     }
     
     
-    
+    /**
+     * Twins -> If the boundary between two primes are 2
+     * Cousin -> If the boundary between two primes are 4
+     * Sexy -> If the boundary between two primes are 6
+     * 
+     * @param boudary
+     * @param distance 
+     */
     public static void findAllConnectedPrimes(int boudary, int distance) {
         Map<Integer, Integer> connectedPrimes = new LinkedHashMap<Integer, Integer>();
         for (int i = 2; i <= boudary; i++) {
