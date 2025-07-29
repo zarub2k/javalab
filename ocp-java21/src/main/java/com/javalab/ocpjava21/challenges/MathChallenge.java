@@ -12,9 +12,9 @@ import java.util.Map;
  */
 public class MathChallenge {
     public static void main(String[] args) {
-        MathChallenge.findAllConnectedPrimes(50, 2);
-        MathChallenge.findAllConnectedPrimes(50, 4);
-        MathChallenge.findAllConnectedPrimes(50, 6);
+        MathChallenge.findAllPrimePairs(50, 2);
+        MathChallenge.findAllPrimePairs(50, 4);
+        MathChallenge.findAllPrimePairs(50, 6);
     }
     
     
@@ -26,7 +26,7 @@ public class MathChallenge {
      * @param boudary
      * @param distance 
      */
-    public static void findAllConnectedPrimes(int boudary, int distance) {
+    public static void findAllPrimePairs(int boudary, int distance) {
         Map<Integer, Integer> connectedPrimes = new LinkedHashMap<Integer, Integer>();
         for (int i = 2; i <= boudary; i++) {
             if (isPrime(i) && isPrime(i + distance)) {
