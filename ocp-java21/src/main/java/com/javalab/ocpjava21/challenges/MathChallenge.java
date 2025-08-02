@@ -12,9 +12,33 @@ import java.util.Map;
  */
 public class MathChallenge {
     public static void main(String[] args) {
-        MathChallenge.findAllPrimePairs(50, 2);
-        MathChallenge.findAllPrimePairs(50, 4);
-        MathChallenge.findAllPrimePairs(50, 6);
+        MathChallenge.findArmstrongNumbers(999);
+    }
+    
+    /**
+     * 153 = 1*100 + 5*10 + 3 = 1^3 + 5^3 + 3^3
+     * 
+     * Output for range 999 > [153, 370, 371, 407]
+     * @param range 
+     */
+    public static void findArmstrongNumbers(int range) {
+        if (range < 100 || range > 999) {
+            System.out.println("The given range is NOT applicable");
+        }
+        
+        List armstrongNumbers = new ArrayList();
+        for (int i = 100; i <= range; i++) {
+            int sum = 0;
+            for (int digit: extractDigits(i)) {
+                sum += Math.pow(digit, 3);
+            }
+            
+            if (sum == i) {
+                armstrongNumbers.add(i);
+            }
+        }
+        
+        System.out.println("Amstrong numbers: \n" + armstrongNumbers);
     }
     
     
@@ -132,7 +156,7 @@ public class MathChallenge {
         System.out.println("Divisors are: \n" + divisors);
     }
     
-    public static void extractDigits(int value) {
+    public static List<Integer> extractDigits(int value) {
         List<Integer> finalNumbers = new ArrayList();
 
         int remaining = value;
@@ -143,7 +167,9 @@ public class MathChallenge {
             remaining = remaining / 10;
         }
         
+//        System.out.println(finalNumbers);
         Collections.reverse(finalNumbers);
-        System.out.println(finalNumbers);
+        
+        return finalNumbers;
     }
 }
